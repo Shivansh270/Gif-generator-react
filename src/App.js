@@ -1,23 +1,22 @@
-import React from 'react'
-import Random from './components/Random'
-import Tag from './components/Tag'
-import Spinner from './components/Spinner'
+import React, { useState } from 'react';
 
+import Navbar from './components/Navbar';
+import Routing from './components/Routing';
+import Footer from './components/Footer';
 
 const App = () => {
-  return (    
-    
-    <div className="w-full h-screen flex flex-col background relative overflow-x-hidden items-center">
-      <h1 className=" bg-white rounded-lg w-11/12 text-center mt-[40px]
-       px-10 py-2 text-4xl font-bold ">
-      RANDOM GIFS</h1>
-      <div className="flex flex-col w-full items-center gap-y-10 mt-[30px]">
-        <Random />
-        <Tag />
+  const [darkTheme, setDarkTheme] = useState(false);
+
+  return (
+    <div className={darkTheme ? 'dark' : ''}>
+      <div className="bg-gray-100 dark:bg-gray-900 dark:text-gray-200  min-h-screen">
+        <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+        <Routing />
+        <Footer />
       </div>
     </div>
 
-  )
-}
+  );
+};
 
-export default App
+export default App;
